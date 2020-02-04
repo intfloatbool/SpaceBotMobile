@@ -2,18 +2,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Preloader : MonoBehaviour
+public class Preloader : MonoBehaviour, IDonebleAction
 {
     [SerializeField] private GameObject[] _preloadObjectPrefabs;
     [SerializeField] private float _initializeDelay = 0.5f;
+    [SerializeField] private UnityEvent _onPreloadDoneEvent;
 
-    public event Action OnPreloaderFinished = () => { };
+    public event Action OnDone = () => { };
 
     private IEnumerator Start()
     {
         yield return StartCoroutine(InitializePreloadersCoroutine());
-        OnPreloaderFinished();
+        OnDone();
+        _onPreloadDoneEvent.Invoke();
     }
 
     private IEnumerator InitializePreloadersCoroutine()
@@ -24,6 +27,6 @@ public class Preloader : MonoBehaviour
             var objPrefab = _preloadObjectPrefabs[i];
             Instantiate(objPrefab);
             yield return delay;
-        }
+        }      
     }
 }
