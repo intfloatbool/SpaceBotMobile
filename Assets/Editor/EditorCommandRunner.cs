@@ -23,7 +23,16 @@ public class EditorCommandRunner : Editor
                 command.Args = new object[commandRunner.Args.Length];
                 for(int j = 0; j < command.Args.Length; j++)
                 {
-                    command.Args[j] = commandRunner.Args[j];
+                    var commandArg = commandRunner.Args[j];
+                    int integerVal;
+                    if(int.TryParse(commandArg, out integerVal))
+                    {
+                        command.Args[j] = integerVal;
+                    } 
+                    else
+                    {
+                        command.Args[j] = commandRunner.Args[j];
+                    }               
                 }
                 command.DoAction();
             }

@@ -9,8 +9,8 @@ public class CommandCreator : PreloadSingleton<CommandCreator>
     public ProgrammableObjectBase ProgrammableObject => _programmableObject;
 
     [Header("target command args for test")]
-    [SerializeField] private int[] _args;
-    public int[] Args => _args;
+    [SerializeField] private string[] _args;
+    public string[] Args => _args;
 
     protected override CommandCreator GetInstance() => this;
     protected override void Awake()
@@ -29,6 +29,10 @@ public class CommandCreator : PreloadSingleton<CommandCreator>
             case CommandType.ROTATE:
                 {
                     return new RotateCommand(programableObject);
+                }
+            case CommandType.RADAR:
+                {
+                    return new RadarCommand(programableObject);
                 }
             default:
                 {

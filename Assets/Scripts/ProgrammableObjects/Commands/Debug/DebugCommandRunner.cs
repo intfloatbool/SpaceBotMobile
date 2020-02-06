@@ -7,7 +7,7 @@ public class DebugCommandRunner : MonoBehaviour
     [SerializeField] private ProgrammableObjectBase _reciever;
     public ProgrammableObjectBase Reciever => _reciever;
 
-    [SerializeField] private int[] _args;
-    public int[] Args => _args;
+    [SerializeField] private string[] _args;
+    public string[] Args => _args;
 
 }

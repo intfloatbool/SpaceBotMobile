@@ -3,5 +3,5 @@
     UNDEFINED,
     MOVE,
     ROTATE,
-    SCAN
+    RADAR
 }

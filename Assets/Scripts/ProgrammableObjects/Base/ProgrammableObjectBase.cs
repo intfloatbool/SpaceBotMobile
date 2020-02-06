@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public abstract class ProgrammableObjectBase : MonoBehaviour
@@ -10,7 +11,9 @@ public abstract class ProgrammableObjectBase : MonoBehaviour
     protected Dictionary<CommandType, Action> _commandExecutorsDict = new Dictionary<CommandType, Action>();
     protected Dictionary<CommandType, object[]> _commandArgsDict = new Dictionary<CommandType, object[]>();
     protected Coroutine _currentCommandCoroutine;
-    
+
+    [SerializeField] private List<ScannableObject> _scannedObjects;
+
     protected virtual void Awake()
     {
         InitializeCommands();
@@ -23,9 +26,13 @@ public abstract class ProgrammableObjectBase : MonoBehaviour
         _marker.transform.position = transform.position;
     }
     /// <summary>
-    /// Init commands at first time
+    /// Init default at first time, to add new commands just override it.. 
     /// </summary>
-    protected abstract void InitializeCommands();
+    protected virtual void InitializeCommands()
+    {
+        AddCommandExecutor(CommandType.RADAR, StartRadar);
+    }
+
 
     protected virtual void AddCommandExecutor(CommandType cmdType, Action executor)
     {
@@ -35,7 +42,8 @@ public abstract class ProgrammableObjectBase : MonoBehaviour
         } 
         else
         {
-            Debug.LogError($"Cannot add command executor for {cmdType}, already exists!");
+            Debug.LogWarning($"{cmdType} executor has been overwritten!");
+            _commandExecutorsDict[cmdType] = executor;
         }
     }
 
@@ -62,5 +70,27 @@ public abstract class ProgrammableObjectBase : MonoBehaviour
         }
         Debug.LogError($"Cannot execute command {cmdType}, not found!");
         return false;
+    }
+
+    protected bool IsHasArgs()
+    {
+        var args = GetCurrentArgs();
+        return args != null && args.Length > 0;
+    }
+
+    //Default commands actions
+    protected virtual void StartRadar()
+    {     
+        var scanName = "UNKNOWN";
+        if(IsHasArgs())
+        {
+            var currentArgs = GetCurrentArgs();
+            if(currentArgs[0] is string)
+                scanName = (string) currentArgs[0];
+        }
+        _scannedObjects = FindObjectsOfType<ScannableObject>()
+            .ToList()
+            .Where(s => s.ScanTag.Equals(scanName))
+            .ToList();
     }
 }

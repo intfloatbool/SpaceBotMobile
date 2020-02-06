@@ -9,26 +9,28 @@ public class MovablePlatform : ProgrammableObjectBase
     [SerializeField] private float _rotationSpeed = 5;
     protected override void InitializeCommands()
     {
-        _commandExecutorsDict.Add(CommandType.MOVE, StartMove);
-        _commandExecutorsDict.Add(CommandType.ROTATE, StartRotation);
+        base.InitializeCommands();
+        AddCommandExecutor(CommandType.MOVE, StartMove);
+        AddCommandExecutor(CommandType.ROTATE, StartRotation);
     }
 
-    private void StartMove()
+    protected virtual void StartMove()
     {
         _currentCommandCoroutine = StartCoroutine(MoveCoroutine());
     }
 
-    private void StartRotation()
+    protected virtual void StartRotation()
     {
         _currentCommandCoroutine = StartCoroutine(RotateCoroutine());
     }
 
-    private IEnumerator RotateCoroutine()
+    protected virtual IEnumerator RotateCoroutine()
     {
-        var args = GetCurrentArgs();
+        
         var angleToRotate = transform.eulerAngles;
-        if (args != null)
+        if (IsHasArgs())
         {
+            var args = GetCurrentArgs();
             var angle = (int)args[0];
             angleToRotate += Vector3.up * angle;
         }
@@ -38,12 +40,12 @@ public class MovablePlatform : ProgrammableObjectBase
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(angleToRotate), _rotationSpeed * Time.deltaTime);
             yield return null;
         }
-
+        transform.eulerAngles = angleToRotate;
         _currentCommandCoroutine = null;
         yield return null;
     }
 
-    private IEnumerator MoveCoroutine()
+    protected virtual IEnumerator MoveCoroutine()
     {
         var args = GetCurrentArgs();
         if(args != null)
