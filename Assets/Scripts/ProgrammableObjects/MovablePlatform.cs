@@ -5,13 +5,8 @@ using UnityStandardAssets.Characters.ThirdPerson;
 
 public class MovablePlatform : ProgrammableObjectBase
 {
-    [SerializeField] private AICharacterControl _aiControl;
+    [SerializeField] private ObjectMover _objectMover;
     [SerializeField] private float _rotationSpeed = 5;
-    protected override void Awake()
-    {
-        base.Awake();
-        _aiControl.SetTarget(_marker);
-    }
     protected override void InitializeCommands()
     {
         _commandExecutorsDict.Add(CommandType.MOVE, StartMove);
@@ -56,12 +51,15 @@ public class MovablePlatform : ProgrammableObjectBase
             var distance = (int) args[0];
             var posToGo = transform.position + transform.forward * distance;
             _marker.transform.position = posToGo;
+            _objectMover.MovePos = _marker.transform.position;
+            _objectMover.IsActive = true;
         }
 
-        while (_aiControl.agent.remainingDistance > 0)
+        while (!_objectMover.IsReachTarget)
             yield return null;
 
         _currentCommandCoroutine = null;
+        _objectMover.IsActive = false;
         yield return null;     
     }
 }
