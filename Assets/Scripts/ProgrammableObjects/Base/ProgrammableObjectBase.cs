@@ -12,7 +12,7 @@ public abstract class ProgrammableObjectBase : MonoBehaviour
     protected Dictionary<CommandType, object[]> _commandArgsDict = new Dictionary<CommandType, object[]>();
     protected Coroutine _currentCommandCoroutine;
 
-    [SerializeField] private List<ScannableObject> _scannedObjects;
+    [SerializeField] private ScannableObject _nearestObject;
 
     protected virtual void Awake()
     {
@@ -88,9 +88,15 @@ public abstract class ProgrammableObjectBase : MonoBehaviour
             if(currentArgs[0] is string)
                 scanName = (string) currentArgs[0];
         }
-        _scannedObjects = FindObjectsOfType<ScannableObject>()
+        var scannedObjects = FindObjectsOfType<ScannableObject>()
             .ToList()
             .Where(s => s.ScanTag.Equals(scanName))
             .ToList();
+
+        _nearestObject = scannedObjects.OrderBy(s =>
+        {
+            return Vector3.Distance(s.transform.position, transform.position);
+        })
+        .FirstOrDefault();
     }
 }
