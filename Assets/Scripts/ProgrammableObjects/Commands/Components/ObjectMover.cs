@@ -11,6 +11,13 @@ public class ObjectMover : MonoBehaviour
         get { return _moveSpeed; }
         set { this._moveSpeed = value; }
     }
+
+    [SerializeField] private float _rotationSpeed = 5f;
+    public float RotationSpeed
+    {
+        get { return _rotationSpeed; }
+        set { this._rotationSpeed = value; }
+    }
     private Rigidbody _rb;
     public Rigidbody Rb => _rb;
 
@@ -31,6 +38,8 @@ public class ObjectMover : MonoBehaviour
     [SerializeField] private float _stoppingDIstance = 1f;
     public bool IsReachTarget => Vector3.Distance(transform.position, MovePos) <= _stoppingDIstance;
 
+    public Transform FacingTarget { get; set; }
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -43,8 +52,15 @@ public class ObjectMover : MonoBehaviour
         {
             return;
         }
-            
         var relativePos = MovePos - transform.position;
+
+        if (FacingTarget != null)
+        {
+            var relativePosForRot = new Vector3(relativePos.x, transform.position.y, relativePos.z);
+            var lookRot = Quaternion.LookRotation(relativePosForRot, Vector3.up);
+            transform.rotation = Quaternion.Lerp(transform.rotation, lookRot, _rotationSpeed * Time.fixedDeltaTime);
+        }                
+        
         var move = transform.InverseTransformDirection(relativePos);
         transform.Translate(move.normalized * _moveSpeed * Time.fixedDeltaTime);
     }

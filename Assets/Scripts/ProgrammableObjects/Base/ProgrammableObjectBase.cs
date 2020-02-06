@@ -12,7 +12,9 @@ public abstract class ProgrammableObjectBase : MonoBehaviour
     protected Dictionary<CommandType, object[]> _commandArgsDict = new Dictionary<CommandType, object[]>();
     protected Coroutine _currentCommandCoroutine;
 
-    [SerializeField] private ScannableObject _nearestObject;
+    [SerializeField] protected ScannableObject _nearestObject;
+
+    public string LastRadarTargetTag { get; protected set; } = "UNDEFINED";
 
     protected virtual void Awake()
     {
@@ -47,9 +49,12 @@ public abstract class ProgrammableObjectBase : MonoBehaviour
         }
     }
 
-    protected virtual object[] GetCurrentArgs()
+    protected virtual object[] GetCurrentArgs(CommandType commandType = CommandType.UNDEFINED)
     {
-        return _commandArgsDict.ContainsKey(_currentCommand) ? _commandArgsDict[_currentCommand] : null;
+        if (commandType == CommandType.UNDEFINED)
+            commandType = _currentCommand;
+
+        return _commandArgsDict.ContainsKey(commandType) ? _commandArgsDict[commandType] : null;
     }
 
     public virtual bool ExecuteCommand(CommandType cmdType, object[] args)
@@ -81,16 +86,15 @@ public abstract class ProgrammableObjectBase : MonoBehaviour
     //Default commands actions
     protected virtual void StartRadar()
     {     
-        var scanName = "UNKNOWN";
         if(IsHasArgs())
         {
             var currentArgs = GetCurrentArgs();
             if(currentArgs[0] is string)
-                scanName = (string) currentArgs[0];
+                LastRadarTargetTag = (string) currentArgs[0];
         }
         var scannedObjects = FindObjectsOfType<ScannableObject>()
             .ToList()
-            .Where(s => s.ScanTag.Equals(scanName))
+            .Where(s => s.ScanTag.Equals(LastRadarTargetTag))
             .ToList();
 
         _nearestObject = scannedObjects.OrderBy(s =>

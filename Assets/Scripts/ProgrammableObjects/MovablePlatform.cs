@@ -46,15 +46,34 @@ public class MovablePlatform : ProgrammableObjectBase
     }
 
     protected virtual IEnumerator MoveCoroutine()
-    {
-        var args = GetCurrentArgs();
-        if(args != null)
+    {    
+        if(IsHasArgs())
         {
-            var distance = (int) args[0];
-            var posToGo = transform.position + transform.forward * distance;
-            _marker.transform.position = posToGo;
-            _objectMover.MovePos = _marker.transform.position;
-            _objectMover.IsActive = true;
+            var args = GetCurrentArgs();
+            if (args[0] is int)
+            {
+                var distance = (int)args[0];
+                var posToGo = transform.position + transform.forward * distance;
+                _marker.transform.position = posToGo;
+                _objectMover.MovePos = _marker.transform.position;
+                _objectMover.IsActive = true;
+            } 
+            else if (args[0] is string)
+            {
+                if (LastRadarTargetTag != null &&_nearestObject != null)
+                {
+                    _marker.transform.position = _nearestObject.transform.position;
+                    _objectMover.MovePos = _marker.transform.position;
+                    _objectMover.IsActive = true;
+                    _objectMover.FacingTarget = _nearestObject.transform;
+
+                    LastRadarTargetTag = null;
+                }
+                else
+                {
+                    Debug.LogError("No target to move! Run radar first to get target!");
+                }
+            }          
         }
 
         while (!_objectMover.IsReachTarget)
@@ -62,6 +81,7 @@ public class MovablePlatform : ProgrammableObjectBase
 
         _currentCommandCoroutine = null;
         _objectMover.IsActive = false;
+        _objectMover.FacingTarget = null;
         yield return null;     
     }
 }
