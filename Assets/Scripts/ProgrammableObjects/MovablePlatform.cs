@@ -6,7 +6,7 @@ using UnityStandardAssets.Characters.ThirdPerson;
 public class MovablePlatform : ProgrammableObjectBase
 {
     [SerializeField] protected ObjectMover _objectMover;
-    [SerializeField] protected float _rotationSpeed = 5;
+    [SerializeField] protected float _rotationSpeed = 5f;
     protected override void InitializeCommands()
     {
         base.InitializeCommands();
@@ -83,5 +83,13 @@ public class MovablePlatform : ProgrammableObjectBase
         _objectMover.IsActive = false;
         _objectMover.FacingTarget = null;
         yield return null;     
+    }
+
+    protected override void OnCommandStop()
+    {
+        base.OnCommandStop();
+        _objectMover.IsActive = false;
+        _objectMover.FacingTarget = null;
+
     }
 }

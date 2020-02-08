@@ -34,6 +34,10 @@ public class CommandCreator : PreloadSingleton<CommandCreator>
                 {
                     return new RadarCommand(programableObject);
                 }
+            case CommandType.AIM_ROTATE:
+                {
+                    return new AimRotateCommand(programableObject);
+                }
             default:
                 {
                     Debug.LogError($"Command with type {cmdType} not exists!");

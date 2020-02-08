@@ -67,6 +67,7 @@ public abstract class ProgrammableObjectBase : MonoBehaviour
                 Debug.LogWarning("Previous command has been stopped!");
                 StopCoroutine(_currentCommandCoroutine);
                 _currentCommandCoroutine = null;
+                OnCommandStop();
             }
             var commandAction = _commandExecutorsDict[cmdType];
             _commandArgsDict[cmdType] = args;
@@ -81,6 +82,11 @@ public abstract class ProgrammableObjectBase : MonoBehaviour
     {
         var args = GetCurrentArgs();
         return args != null && args.Length > 0;
+    }
+
+    protected virtual void OnCommandStop()
+    {
+
     }
 
     //Default commands actions

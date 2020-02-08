@@ -3,5 +3,6 @@
     UNDEFINED,
     MOVE,
     ROTATE,
-    RADAR
+    RADAR,
+    AIM_ROTATE
 }
