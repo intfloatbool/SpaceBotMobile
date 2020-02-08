@@ -5,8 +5,8 @@ using UnityStandardAssets.Characters.ThirdPerson;
 
 public class MovablePlatform : ProgrammableObjectBase
 {
-    [SerializeField] private ObjectMover _objectMover;
-    [SerializeField] private float _rotationSpeed = 5;
+    [SerializeField] protected ObjectMover _objectMover;
+    [SerializeField] protected float _rotationSpeed = 5;
     protected override void InitializeCommands()
     {
         base.InitializeCommands();

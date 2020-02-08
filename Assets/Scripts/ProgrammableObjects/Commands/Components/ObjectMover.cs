@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class ObjectMover : MonoBehaviour
 {
+
     [SerializeField] private float _moveSpeed = 5f;
     public float MoveSpeed
     {
@@ -52,12 +53,12 @@ public class ObjectMover : MonoBehaviour
         {
             return;
         }
-        var relativePos = MovePos - transform.position;
+        var transformedMovePos = new Vector3(MovePos.x, transform.position.y, MovePos.z);
+        var relativePos = transformedMovePos - transform.position;
 
         if (FacingTarget != null)
         {
-            var relativePosForRot = new Vector3(relativePos.x, transform.position.y, relativePos.z);
-            var lookRot = Quaternion.LookRotation(relativePosForRot, Vector3.up);
+            var lookRot = Quaternion.LookRotation(relativePos, Vector3.up);
             transform.rotation = Quaternion.Lerp(transform.rotation, lookRot, _rotationSpeed * Time.fixedDeltaTime);
         }                
         

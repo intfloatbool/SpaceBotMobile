@@ -155,10 +155,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c68a9b05a5155d24497101210fe2bdea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 25
+  _moveSpeed: 3
+  _rotationSpeed: 4
   _movePos: {x: 0, y: 0, z: 0}
   _isActive: 0
-  _stoppingDIstance: 1.5
+  _stoppingDIstance: 2
 --- !u!114 &7455951921416550218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _marker: {fileID: 0}
   _currentCommand: 0
+  _nearestObject: {fileID: 0}
   _objectMover: {fileID: 7062487101695420706}
   _rotationSpeed: 5
 --- !u!65 &6913240630926550139
