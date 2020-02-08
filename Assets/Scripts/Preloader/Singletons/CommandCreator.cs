@@ -38,6 +38,11 @@ public class CommandCreator : PreloadSingleton<CommandCreator>
                 {
                     return new AimRotateCommand(programableObject);
                 }
+            case CommandType.FIRE:
+                {
+                    return new FireCommand(programableObject);
+                }
+
             default:
                 {
                     Debug.LogError($"Command with type {cmdType} not exists!");

@@ -4,5 +4,6 @@
     MOVE,
     ROTATE,
     RADAR,
-    AIM_ROTATE
+    AIM_ROTATE,
+    FIRE
 }

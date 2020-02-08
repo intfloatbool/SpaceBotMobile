@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class CannonPlatform : MovablePlatform
 {
+    [SerializeField] private float _fireDelay = 1.5f;
     [SerializeField] private FireableCannon _fireCannon;
     protected override void InitializeCommands()
     {
         base.InitializeCommands();
         AddCommandExecutor(CommandType.AIM_ROTATE, AimRotate);
+        AddCommandExecutor(CommandType.FIRE, FireCannon);
     }
 
     protected virtual void AimRotate()
@@ -37,6 +39,18 @@ public class CannonPlatform : MovablePlatform
         _fireCannon.transform.localEulerAngles = angleToRotate;
 
         yield return null;
+        _currentCommandCoroutine = null;
+    }
+
+    protected virtual void FireCannon()
+    {
+        _currentCommandCoroutine = StartCoroutine(FireCannonCoroutine());
+    }
+
+    protected virtual IEnumerator FireCannonCoroutine()
+    {
+        yield return new WaitForSeconds(_fireDelay);
+        _fireCannon.Fire();
         _currentCommandCoroutine = null;
     }
 
