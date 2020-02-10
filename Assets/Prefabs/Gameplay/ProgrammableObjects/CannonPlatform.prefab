@@ -48,7 +48,7 @@ MonoBehaviour:
     type: 3}
   _forceToLaunch: 3000
   _firePosition: {fileID: 4707635680349610737}
-  _launchForce: {x: 0, y: 0.2, z: 1}
+  _launchRelativeForce: {x: 0, y: 0.2, z: 0}
 --- !u!1 &584316096915238439
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,7 +60,6 @@ GameObject:
   - component: {fileID: 584316096915238432}
   - component: {fileID: 584316096915238435}
   - component: {fileID: 584316096915238434}
-  - component: {fileID: 584316096915238433}
   m_Layer: 0
   m_Name: body
   m_TagString: Untagged
@@ -128,19 +127,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &584316096915238433
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584316096915238439}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &584316096931020012
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +140,7 @@ GameObject:
   - component: {fileID: 3693462962978418057}
   - component: {fileID: 1059451877266694352}
   - component: {fileID: 3175572577407231156}
+  - component: {fileID: 2598447203456260095}
   m_Layer: 0
   m_Name: CannonPlatform
   m_TagString: Untagged
@@ -168,7 +155,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584316096931020012}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 90.16, y: 0.54, z: 57.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -222,8 +209,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.6365766, z: 1.9051323}
-  m_Center: {x: 0, y: -0.0034289658, z: -0.0068569183}
+  m_Size: {x: 1, y: 0.66479397, z: 1.9485207}
+  m_Center: {x: 0, y: 0.010679662, z: 0.014837265}
 --- !u!114 &3175572577407231156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +230,26 @@ MonoBehaviour:
   _rotationSpeed: 3
   _fireDelay: 0.5
   _fireCannon: {fileID: 1910937581878729533}
+--- !u!114 &2598447203456260095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584316096931020012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115fcfb059434164ebc04a84d75b29a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onControlStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  _onControlStopped:
+    m_PersistentCalls:
+      m_Calls: []
+  _localCamPos: {x: 0, y: 1.8, z: -4}
+  _localCamRot: {x: 10, y: 0, z: 0}
 --- !u!1 &1060270688468226681
 GameObject:
   m_ObjectHideFlags: 0
