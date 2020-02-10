@@ -23,6 +23,7 @@ public class FunctionalControlable : ControlableObject
     public override void OnStartControl()
     {
         base.OnStartControl();
+        GuiHandler.Instance.ActivateGuiByType(GuiHandler.GuiType.Player);
         SetActiveDepends(true);
     }
 

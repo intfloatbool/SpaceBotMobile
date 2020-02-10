@@ -26,7 +26,7 @@ public class UserPicker : SingletonBase<UserPicker>
                 var controlableObject = hit.collider.gameObject.GetComponent<ControlableObject>();
                 if (controlableObject != null)
                 {
-                    OnPick(controlableObject);
+                    Pick(controlableObject);
                 }
             }
         }

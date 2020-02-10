@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 3693462962978418057}
   - component: {fileID: 1059451877266694352}
   - component: {fileID: 3175572577407231156}
-  - component: {fileID: 2598447203456260095}
+  - component: {fileID: 5529205795002459648}
   m_Layer: 0
   m_Name: CannonPlatform
   m_TagString: Untagged
@@ -230,7 +230,7 @@ MonoBehaviour:
   _rotationSpeed: 3
   _fireDelay: 0.5
   _fireCannon: {fileID: 1910937581878729533}
---- !u!114 &2598447203456260095
+--- !u!114 &5529205795002459648
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 584316096931020012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 115fcfb059434164ebc04a84d75b29a0, type: 3}
+  m_Script: {fileID: 11500000, guid: e82ddc5e6bbc8aa44899c3c2be7c34cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _onControlStarted:
