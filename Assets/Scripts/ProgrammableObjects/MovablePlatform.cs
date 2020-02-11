@@ -44,8 +44,7 @@ public class MovablePlatform : ProgrammableObjectBase
             yield return null;
         }
         transform.eulerAngles = angleToRotate;
-        _currentCommandCoroutine = null;
-        yield return null;
+        yield return StartCoroutine(DelayedCommandReset());
     }
 
     protected virtual IEnumerator MoveCoroutine()
@@ -82,10 +81,9 @@ public class MovablePlatform : ProgrammableObjectBase
         while (!_objectMover.IsReachTarget)
             yield return null;
 
-        _currentCommandCoroutine = null;
+        yield return StartCoroutine(DelayedCommandReset());
         _objectMover.IsActive = false;
-        _objectMover.FacingTarget = null;
-        yield return null;     
+        _objectMover.FacingTarget = null; 
     }
 
     protected override void OnCommandStop()
@@ -93,6 +91,5 @@ public class MovablePlatform : ProgrammableObjectBase
         base.OnCommandStop();
         _objectMover.IsActive = false;
         _objectMover.FacingTarget = null;
-
     }
 }

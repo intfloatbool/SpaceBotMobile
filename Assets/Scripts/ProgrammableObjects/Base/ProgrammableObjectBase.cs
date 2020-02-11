@@ -5,7 +5,8 @@ using System.Linq;
 using UnityEngine;
 
 public abstract class ProgrammableObjectBase : MonoBehaviour
-{ 
+{
+    [SerializeField] protected float _delayAfterCommandDone = 1f;
     [SerializeField] protected Transform _marker;
     [SerializeField] protected CommandType _currentCommand = CommandType.UNDEFINED;
     protected Dictionary<CommandType, Action> _commandExecutorsDict = new Dictionary<CommandType, Action>();
@@ -87,6 +88,12 @@ public abstract class ProgrammableObjectBase : MonoBehaviour
     protected virtual void OnCommandStop()
     {
 
+    }
+    
+    protected virtual IEnumerator DelayedCommandReset()
+    {
+        yield return new WaitForSeconds(_delayAfterCommandDone);
+        _currentCommandCoroutine = null;
     }
 
     //Default commands actions

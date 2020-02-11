@@ -41,8 +41,7 @@ public class CannonPlatform : MovablePlatform
         }
         _fireCannon.transform.localEulerAngles = angleToRotate;
 
-        yield return null;
-        _currentCommandCoroutine = null;
+        yield return StartCoroutine(DelayedCommandReset());
     }
 
     protected virtual void FireCannon()
@@ -54,7 +53,7 @@ public class CannonPlatform : MovablePlatform
     {
         yield return new WaitForSeconds(_fireDelay);
         _fireCannon.Fire();
-        _currentCommandCoroutine = null;
+        yield return StartCoroutine(DelayedCommandReset());
     }
 
 }
