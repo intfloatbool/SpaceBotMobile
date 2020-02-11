@@ -35,9 +35,12 @@ public class MovablePlatform : ProgrammableObjectBase
             angleToRotate += Vector3.up * angle;
         }
 
-        while(transform.eulerAngles.y < angleToRotate.y)
+        var eulerRotation = Quaternion.Euler(angleToRotate);
+        var maxAngle = 1f;   
+        while(Quaternion.Angle(Quaternion.Euler(transform.eulerAngles), eulerRotation) >
+            maxAngle)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(angleToRotate), _rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, eulerRotation, _rotationSpeed * Time.deltaTime);
             yield return null;
         }
         transform.eulerAngles = angleToRotate;

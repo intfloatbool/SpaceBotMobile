@@ -31,7 +31,10 @@ public class CannonPlatform : MovablePlatform
             }
         }
 
-        while(_fireCannon.transform.localEulerAngles.y < angleToRotate.y)
+        var maxAngle = 1f;
+        
+        while(Quaternion.Angle(Quaternion.Euler(_fireCannon.transform.localEulerAngles),
+            Quaternion.Euler(angleToRotate)) >= maxAngle)
         {
             _fireCannon.transform.localRotation = Quaternion.Lerp(_fireCannon.transform.localRotation, Quaternion.Euler(angleToRotate), _rotationSpeed * Time.deltaTime);
             yield return null;

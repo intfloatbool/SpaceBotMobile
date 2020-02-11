@@ -18,29 +18,29 @@ public class CommandCreator : PreloadSingleton<CommandCreator>
         base.Awake();
     }
 
-    public CommandBase GetCommandByType(CommandType cmdType, ProgrammableObjectBase programableObject)
+    public CommandBase GetCommandByType(CommandType cmdType, ProgrammableObjectBase programableObject, object[] args = null)
     {
         switch(cmdType)
         {
             case CommandType.MOVE:
                 {
-                    return new MoveCommand(programableObject);
+                    return new MoveCommand(programableObject, args);
                 }
             case CommandType.ROTATE:
                 {
-                    return new RotateCommand(programableObject);
+                    return new RotateCommand(programableObject, args);
                 }
             case CommandType.RADAR:
                 {
-                    return new RadarCommand(programableObject);
+                    return new RadarCommand(programableObject, args);
                 }
             case CommandType.AIM_ROTATE:
                 {
-                    return new AimRotateCommand(programableObject);
+                    return new AimRotateCommand(programableObject, args);
                 }
             case CommandType.FIRE:
                 {
-                    return new FireCommand(programableObject);
+                    return new FireCommand(programableObject, args);
                 }
 
             default:
