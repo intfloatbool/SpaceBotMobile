@@ -80,10 +80,9 @@ public class MovablePlatform : ProgrammableObjectBase
 
         while (!_objectMover.IsReachTarget)
             yield return null;
-
-        yield return StartCoroutine(DelayedCommandReset());
         _objectMover.IsActive = false;
-        _objectMover.FacingTarget = null; 
+        _objectMover.FacingTarget = null;
+        yield return StartCoroutine(DelayedCommandReset());  
     }
 
     protected override void OnCommandStop()

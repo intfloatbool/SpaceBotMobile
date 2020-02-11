@@ -9,9 +9,13 @@ public abstract class ProgrammableObjectBase : MonoBehaviour
     [SerializeField] protected float _delayAfterCommandDone = 1f;
     [SerializeField] protected Transform _marker;
     [SerializeField] protected CommandType _currentCommand = CommandType.UNDEFINED;
+    [SerializeField] protected CommandProviderBase _commandProvider;
+    public CommandProviderBase CommandProvider => _commandProvider;
+
     protected Dictionary<CommandType, Action> _commandExecutorsDict = new Dictionary<CommandType, Action>();
     protected Dictionary<CommandType, object[]> _commandArgsDict = new Dictionary<CommandType, object[]>();
     protected Coroutine _currentCommandCoroutine;
+    public bool IsExecuting => _currentCommandCoroutine != null;
 
     [SerializeField] protected ScannableObject _nearestObject;
 

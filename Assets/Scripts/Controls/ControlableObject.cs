@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 public class ControlableObject : MonoBehaviour
 {
+    [SerializeField] protected string _name;
+    public string Name => _name;
 
     [SerializeField] protected UnityEvent _onControlStarted;
     [SerializeField] protected UnityEvent _onControlStopped;
