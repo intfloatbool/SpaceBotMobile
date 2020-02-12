@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class DestructableObject : MonoBehaviour
 {
+    [SerializeField] protected Animator _animator;
     [SerializeField] protected int _health = 50;
     public int Health => _health;
 
@@ -30,6 +31,10 @@ public class DestructableObject : MonoBehaviour
     protected virtual void OnDeath()
     {
         StartCoroutine(OnDeathCoroutine());
+        if(_animator != null)
+        {
+            _animator.SetBool("isDead", true);
+        }
     }
 
     protected virtual IEnumerator OnDeathCoroutine()

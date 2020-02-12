@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,8 +34,14 @@ public class ObjectMover : MonoBehaviour
     public bool IsActive 
     {
         get { return _isActive; }
-        set { this._isActive = value; }
+        set 
+        {
+            this._isActive = value;
+            OnActiveChanged(this._isActive);
+        }
     }
+
+    public event Action<bool> OnActiveChanged = (isActive) => { };
 
     [SerializeField] private float _stoppingDIstance = 1f;
     public bool IsReachTarget => Vector3.Distance(transform.position, MovePos) <= _stoppingDIstance;
