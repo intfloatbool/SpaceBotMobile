@@ -69,7 +69,7 @@ MonoBehaviour:
   _rotationSpeed: 4
   _movePos: {x: 0, y: 0, z: 0}
   _isActive: 0
-  _stoppingDIstance: 2
+  _stoppingDIstance: 0.1
 --- !u!65 &1059451877266694352
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -123,8 +123,8 @@ MonoBehaviour:
   _onControlStopped:
     m_PersistentCalls:
       m_Calls: []
-  _localCamPos: {x: 0, y: 1.8, z: -4}
-  _localCamRot: {x: 10, y: 0, z: 0}
+  _localCamPos: {x: 0, y: 2, z: -5}
+  _localCamRot: {x: 20, y: 0, z: 0}
 --- !u!1 &726853511896733776
 GameObject:
   m_ObjectHideFlags: 0
