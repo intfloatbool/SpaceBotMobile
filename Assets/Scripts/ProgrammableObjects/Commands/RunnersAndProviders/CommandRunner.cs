@@ -71,6 +71,8 @@ public class CommandRunner : SingletonBase<CommandRunner>
                 yield return null;
             }
         }
+
+        _currentCommandsCoroutine = null;
     }
 
 }

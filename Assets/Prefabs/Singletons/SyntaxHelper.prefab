@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5086513113606193672
+--- !u!1 &2119627789832868201
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 557889952631114082}
-  - component: {fileID: 7450136691991862911}
+  - component: {fileID: 2443065839363975151}
+  - component: {fileID: 1187817299103707509}
   m_Layer: 0
-  m_Name: Preloader
+  m_Name: SyntaxHelper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &557889952631114082
+--- !u!4 &2443065839363975151
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5086513113606193672}
+  m_GameObject: {fileID: 2119627789832868201}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,24 +31,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7450136691991862911
+--- !u!114 &1187817299103707509
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5086513113606193672}
+  m_GameObject: {fileID: 2119627789832868201}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ffa9031bd798204d9f7f998ea53d8eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 94664374ca033d3478955ffcc183b88b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _preloadObjectPrefabs:
-  - {fileID: 6230432477403129210, guid: b3161bea7ea3cd54d80e2ff5ecce2c8a, type: 3}
-  - {fileID: 2274692188541975012, guid: 559671a0027ea1542b954ac3fd69a1f4, type: 3}
-  - {fileID: 6863912126086262248, guid: e04f432898fd62b4d94a6f2564451f92, type: 3}
-  - {fileID: 2119627789832868201, guid: 7b2a5a774f53c2f4e9b5777746044c25, type: 3}
-  _initializeDelay: 0.5
-  _onPreloadDoneEvent:
-    m_PersistentCalls:
-      m_Calls: []
+  _syntaxContainers:
+  - Name: Move
+    CommandType: 1
+    ArgsType: 0
+  - Name: Rotate
+    CommandType: 2
+    ArgsType: 0
+  - Name: Radar
+    CommandType: 3
+    ArgsType: 0
+  - Name: AimRotate
+    CommandType: 4
+    ArgsType: 0
+  - Name: Fire
+    CommandType: 5
+    ArgsType: 0
+  _lastCommandContainer:
+    _commandType: 0
+    _args: []

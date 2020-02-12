@@ -801,7 +801,7 @@ PrefabInstance:
     - target: {fileID: 7914992839899811143, guid: 95c010a3b86c2f84bbfbdda403306480,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7914992839899811143, guid: 95c010a3b86c2f84bbfbdda403306480,
         type: 3}
@@ -1556,7 +1556,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 7.965, y: 0, z: 0}
 --- !u!114 &1230512778
 MonoBehaviour:
@@ -1872,114 +1872,6 @@ Transform:
   m_Father: {fileID: 1737544986}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1345014167
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1345014168}
-  - component: {fileID: 1345014170}
-  - component: {fileID: 1345014169}
-  m_Layer: 0
-  m_Name: Body
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1345014168
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345014167}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.409, y: 0, z: 0.04}
-  m_LocalScale: {x: 5.8753514, y: 1.631, z: 1.631}
-  m_Children: []
-  m_Father: {fileID: 1700728178}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &1345014169
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345014167}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: d4e07701214d0e441b27277d232a52d2, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &1345014170
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345014167}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1516283838
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1516283839}
-  m_Layer: 0
-  m_Name: defeatEff
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1516283839
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516283838}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1700728178}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1548454900
 GameObject:
   m_ObjectHideFlags: 0
@@ -2163,70 +2055,6 @@ MonoBehaviour:
   - {fileID: 1760239779}
   _programmableNameText: {fileID: 1156021086}
   _selectedProgrammable: {fileID: 0}
---- !u!1 &1700728175
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1700728178}
-  - component: {fileID: 1700728177}
-  - component: {fileID: 1700728176}
-  m_Layer: 0
-  m_Name: Destruction
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &1700728176
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700728175}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6.03, y: 1.95, z: 1.69}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1700728177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700728175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9b04c4d2d30bb5459764416e6de42bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 50
-  _isDead: 0
-  _mainBody: {fileID: 1345014168}
-  _deathEffectTransform: {fileID: 1516283839}
-  _timeToDissapear: 3
---- !u!4 &1700728178
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700728175}
-  m_LocalRotation: {x: -0, y: 0.57208455, z: -0, w: 0.82019466}
-  m_LocalPosition: {x: 92.97, y: 0.74, z: 66.79}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1345014168}
-  - {fileID: 1516283839}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 69.791, z: 0}
 --- !u!1001 &1726567299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2237,7 +2065,7 @@ PrefabInstance:
     - target: {fileID: 584316096931020012, guid: b70dfb98b7a341d47b8dbb3075b319b4,
         type: 3}
       propertyPath: m_Name
-      value: CannonPlatform2
+      value: PlanetPanzer2
       objectReference: {fileID: 0}
     - target: {fileID: 584316096931020008, guid: b70dfb98b7a341d47b8dbb3075b319b4,
         type: 3}
@@ -2277,7 +2105,7 @@ PrefabInstance:
     - target: {fileID: 584316096931020008, guid: b70dfb98b7a341d47b8dbb3075b319b4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 584316096931020008, guid: b70dfb98b7a341d47b8dbb3075b319b4,
         type: 3}
@@ -2828,7 +2656,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1942501124
 GameObject:
@@ -2959,7 +2787,7 @@ RectTransform:
   - {fileID: 1942501125}
   - {fileID: 216624212}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3095,7 +2923,7 @@ PrefabInstance:
     - target: {fileID: 584316096931020012, guid: b70dfb98b7a341d47b8dbb3075b319b4,
         type: 3}
       propertyPath: m_Name
-      value: CannonPlatform1
+      value: PlanetPanzer1
       objectReference: {fileID: 0}
     - target: {fileID: 584316096931020008, guid: b70dfb98b7a341d47b8dbb3075b319b4,
         type: 3}
@@ -3196,6 +3024,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _commandContainers.Array.data[0]._args.Array.data[0]
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 166293630152521602, guid: b70dfb98b7a341d47b8dbb3075b319b4,
+        type: 3}
+      propertyPath: _currentCodeText
+      value: "World.PlanetPanzer1.Actions {\r\n\tMove(10)\r\n\tRotate(90)\r\n\tMove(10)\r\n\tFire()\r\n\tMove(-5)\r\n\tFire()\r\n}"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b70dfb98b7a341d47b8dbb3075b319b4, type: 3}

@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class CodeCommandProvider : CommandProviderBase
 {
-    private string _currentCodeText;
+    [SerializeField] private ProgrammableObjectBase _progrmmable;
+
+    [TextArea]
+    [SerializeField] private string _currentCodeText;
     public void SetCommandCode(string code)
     {
         this._currentCodeText = code;
@@ -16,6 +19,12 @@ public class CodeCommandProvider : CommandProviderBase
     }
     public override IEnumerable<CommandContainer> GetCommandContainers()
     {
-        return CodeParserCreator.Instance.GetCurrentParser().ParseText(_currentCodeText);
+        var parser = CodeParserCreator.Instance.GetCurrentParser();
+        parser.ProgrammableObject = _progrmmable;
+        if(parser.ProgrammableObject == null)
+        {
+            Debug.LogError("Programmable object not found!!");
+        }
+        return parser.ParseText(_currentCodeText);
     }
 }

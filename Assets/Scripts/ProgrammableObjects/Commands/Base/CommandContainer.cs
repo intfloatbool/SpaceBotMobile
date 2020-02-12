@@ -22,6 +22,11 @@ public class CommandContainer
     /// </summary>
     public object[] GetPackedArgs()
     {
+        if(_args == null || _args.Length <= 0)
+        {
+            return null;
+        }
+
         var argsArr = new object[_args.Length];
         for (int j = 0; j < argsArr.Length; j++)
         {

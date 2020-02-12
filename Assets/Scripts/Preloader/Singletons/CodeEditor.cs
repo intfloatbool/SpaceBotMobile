@@ -37,7 +37,7 @@ public class CodeEditor : SingletonBase<CodeEditor>
         if(string.IsNullOrEmpty(providerText))
         {
             var codeObjectName = _codeProvider.transform.root.name;
-            var objectBodyText = $"World.{codeObjectName}.Actions" + "{\n\n}";
+            var objectBodyText = $"World.{codeObjectName}.Actions" + " {\n\n}";
             providerText = objectBodyText;
         }
         _inputField.text = providerText;
