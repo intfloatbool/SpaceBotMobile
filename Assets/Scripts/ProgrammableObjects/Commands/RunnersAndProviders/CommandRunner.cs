@@ -55,7 +55,7 @@ public class CommandRunner : SingletonBase<CommandRunner>
         if(commands == null)
         {
             Debug.LogError("Cannot get commands from provider!");
-            yield return null;
+            yield break;
         }
 
         foreach(var commandContainer in commands)

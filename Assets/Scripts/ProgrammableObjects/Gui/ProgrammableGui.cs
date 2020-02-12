@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class ProgrammableGui : MonoBehaviour
 {
-    [SerializeField] private RunProgrammBtn _runProgrammButton;
+    [SerializeField] private ProgrammableBtn[] _programmableButtons;
     [SerializeField] private TextMeshProUGUI _programmableNameText;
+    [SerializeField] private ProgrammableObjectBase _selectedProgrammable;
+    public ProgrammableObjectBase SelectedProgrammable => _selectedProgrammable;
     private void Start()
     {
         UserPicker.Instance.OnPick += OnRobotPick;
@@ -16,7 +18,10 @@ public class ProgrammableGui : MonoBehaviour
     {  
         if(controlable is RobotControlable robotControlable)
         {
-            _runProgrammButton.SetProgrammable(robotControlable.ProgrammableObject);
+            for(int i = 0; i < _programmableButtons.Length; i++)
+            {
+                _programmableButtons[i].SetProgrammable(robotControlable.ProgrammableObject);
+            }
             _programmableNameText.text = robotControlable.Name;
         }           
     }
